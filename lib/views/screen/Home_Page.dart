@@ -2,6 +2,7 @@ import 'package:animator_planet/models/planet_lists.dart';
 import 'package:animator_planet/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:animation_list/animation_list.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 class Home_Page extends StatefulWidget {
@@ -36,7 +37,7 @@ class _Home_PageState extends State<Home_Page> {
             ),
             Expanded(
                 child: AnimationList(
-                  duration: 200,
+                  duration: 4000,
                   reBounceDepth: 0,
                   physics: BouncingScrollPhysics(),
                   children: Planet.planetList.map((e) {
@@ -62,7 +63,7 @@ class _Home_PageState extends State<Home_Page> {
                               child: Hero(
                                 tag: e['file'],
                                 child: ModelViewer(
-                                    src: e['file'],
+                                    src: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
                                   autoRotate: true,
                                 ),
                               ),
@@ -72,7 +73,11 @@ class _Home_PageState extends State<Home_Page> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                // Text(data)
+                                Text(e['name'],style: GoogleFonts.akshar(fontSize: 20,color: MyColors.white),),
+                                Text(e['type'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
+                                Text(e['radius'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
+                                Text(e['year'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
+
                               ],
                             )
                           ],

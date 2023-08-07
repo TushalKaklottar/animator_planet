@@ -1,7 +1,9 @@
+import 'package:animator_planet/utils/color.dart';
 import 'package:animator_planet/views/screen/Detail_Page.dart';
 import 'package:animator_planet/views/screen/Home_Page.dart';
 import 'package:animator_planet/views/screen/Splash_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true
+        useMaterial3: true,
       ),
      routes: {
         '/': (context) => Splash_Screen(),
