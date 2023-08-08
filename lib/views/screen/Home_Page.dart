@@ -19,8 +19,8 @@ class _Home_PageState extends State<Home_Page> {
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/back.png"),
               fit: BoxFit.cover,
@@ -28,10 +28,12 @@ class _Home_PageState extends State<Home_Page> {
           ),
         child: Column(
           children: [
-            Padding(padding: EdgeInsets.symmetric(vertical: 20),
+             Padding(padding: EdgeInsets.only(top: 40),
             child: Text("Galaxy Planets",
-              style: TextStyle(
+              style: GoogleFonts.aBeeZee(
                 fontSize: 20,
+                letterSpacing: 0.5,
+                color: Colors.white,
               ),
             ),
             ),
@@ -39,7 +41,7 @@ class _Home_PageState extends State<Home_Page> {
                 child: AnimationList(
                   duration: 4000,
                   reBounceDepth: 0,
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   children: Planet.planetList.map((e) {
                     return GestureDetector(
                       onTap: () {
@@ -48,7 +50,7 @@ class _Home_PageState extends State<Home_Page> {
                         });
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 5),
+                        margin: const EdgeInsets.symmetric(vertical: 5),
                         height: 150,
                         width: w,
                         decoration: BoxDecoration(
@@ -57,13 +59,13 @@ class _Home_PageState extends State<Home_Page> {
                         ),
                         child: Row(
                           children: [
-                            Padding(padding: EdgeInsets.symmetric(horizontal: 20),
+                            Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: SizedBox(
                               width: 100,
                               child: Hero(
                                 tag: e['file'],
                                 child: ModelViewer(
-                                    src: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+                                    src: e['file'],
                                   autoRotate: true,
                                 ),
                               ),
@@ -73,11 +75,35 @@ class _Home_PageState extends State<Home_Page> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(e['name'],style: GoogleFonts.akshar(fontSize: 20,color: MyColors.white),),
-                                Text(e['type'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
-                                Text(e['radius'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
-                                Text(e['year'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
-
+                                Text(
+                                  e['name'],
+                                  style: GoogleFonts.akshar(
+                                      fontSize: 20,
+                                      color: MyColors.white,
+                                    letterSpacing: 1
+                                  ),
+                                ),
+                                Text(
+                                  e['type'],
+                                  style: GoogleFonts.akshar(
+                                      fontSize: 16,
+                                      color: MyColors.grey,
+                                    letterSpacing: 0.5
+                                  ),
+                                ),
+                                Text(e['radius'],
+                                  style: GoogleFonts.akshar(
+                                    fontSize: 16,
+                                      color: MyColors.grey
+                                  ),
+                                ),
+                                Text(
+                                  e['year'],
+                                  style: GoogleFonts.akshar(
+                                      fontSize: 16,
+                                      color: MyColors.grey
+                                  ),
+                                ),
                               ],
                             )
                           ],
@@ -90,7 +116,6 @@ class _Home_PageState extends State<Home_Page> {
           ],
         ),
         ),
-
     );
   }
 }

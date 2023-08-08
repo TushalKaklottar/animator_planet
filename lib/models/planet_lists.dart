@@ -66,7 +66,7 @@ class Planet {
     },
     {
       'name': 'Uranus',
-      'file': 'assets/images/back.png',
+      'file': 'assets/images/Uranus.glb',
       'year' : '31,000 Earth Day',
       'type' :'Ice Giant',
       'radius' : "25,362.0 KM",

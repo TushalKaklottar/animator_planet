@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 import '../../models/planet_lists.dart';
@@ -19,21 +20,34 @@ class _Detail_PageState extends State<Detail_Page> {
     int? index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage("assets/images/back.png",),
          fit: BoxFit.cover
           )
         ),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
               children: [
-          Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Text(Planet.planetList[index]['name'], style: const TextStyle(fontSize: 20),),
-      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.arrow_back_ios,color: MyColors.white,),
+                      ),
+                      SizedBox(width: 20),
+                      Text(Planet.planetList[index]['name'],
+                    style: GoogleFonts.aBeeZee(fontSize: 20,color: Colors.white,letterSpacing: 0.5),),
+                    ],
+                  ),
+                ),
       SizedBox(
           height: 500,
           child: Hero(
@@ -44,7 +58,7 @@ class _Detail_PageState extends State<Detail_Page> {
             ),
           ),
       ),
-      const SizedBox(height: 30),
+      const SizedBox(height: 20),
       Container(
           padding: const EdgeInsets.all(20),
           width: width,
@@ -54,9 +68,11 @@ class _Detail_PageState extends State<Detail_Page> {
           ),
           child: Column(
             children: [
-              const Text("Description", style: TextStyle(fontSize: 20),),
+               Text("Description", style: GoogleFonts.akshar(fontSize: 20,color: MyColors.white),),
               const SizedBox(height: 5),
-              Text(Planet.planetList[index]['des'], style: TextStyle(fontSize: 16, color: MyColors.grey),),
+              Text(Planet.planetList[index]['des'],
+                style: GoogleFonts.akshar(
+                    fontSize: 16, color: MyColors.grey,letterSpacing: 0.5),),
             ],
           ),
       ),
