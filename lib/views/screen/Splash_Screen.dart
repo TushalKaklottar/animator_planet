@@ -14,7 +14,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(const Duration(seconds: 3),() =>
+    Timer(const Duration(seconds: 5),() =>
         Navigator.pushReplacementNamed(context, 'homepage'),
     );
   }
@@ -25,7 +25,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
       backgroundColor: Colors.black,
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/splash.png"),
+          image: DecorationImage(image: AssetImage("assets/images/img.png"),
           fit: BoxFit.cover,
           )
         ),
