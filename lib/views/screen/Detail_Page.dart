@@ -55,6 +55,7 @@ class _Detail_PageState extends State<Detail_Page> {
             child: ModelViewer(
               src: Planet.planetList[index]['file'],
               autoRotate: true,
+
             ),
           ),
       ),
